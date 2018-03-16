@@ -4,15 +4,6 @@ super simple server to mock api responses to assist in front end development
 ### installation
 `npm install --save-dev lukejgaskell/mockserver`
 
-### how to run
-update package.json scripts
-```
- "scripts" {
-    "mockserver": "node -e "require('mockserver')(config);"
- }
-```
-`npm run mockserver`
-
 ### setup
 files under the mockFolder will respond as the rest endpoints
 files should be titled in this format: `myEndpoint.get.json`, `myEndpoint.post.json`, `myEndpoint.put.json`... etc
@@ -40,3 +31,12 @@ config = {
     "distFolder": "./dist"
 }
 ```
+
+### how to run
+update package.json scripts
+```
+ "scripts" {
+    "mockserver": "node -e "require('mockserver')(config);"
+ }
+```
+`npm run mockserver`
