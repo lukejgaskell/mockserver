@@ -8,7 +8,7 @@ super simple server to mock api responses to assist in front end development
 update package.json scripts
 ```
  "scripts" {
-    "mockserver": "node -e "require('node_modules/mockserver/mockserver.js')(config);"
+    "mockserver": "node -e "require('mockserver')(config);"
  }
 ```
 `npm run mockserver`
