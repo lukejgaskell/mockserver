@@ -40,3 +40,19 @@ update package.json scripts
  }
 ```
 `npm run mockserver`
+
+### mock_data
+- The mock_data you create is convention based structure to simulate the rest api
+- Treat the rest endpoint like a directory structure in the mock_data
+- For example with the above configuration the endpoint GET /api/myData would be
+```
+mock_data
+  - myData.get.json
+```
+or POST /api/users/1/activity would be
+```
+mock_data
+  - users
+    - 1
+      - activity.post.json
+```
