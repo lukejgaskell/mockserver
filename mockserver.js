@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const cors = require('cors');
 
 const app = express();
 
@@ -10,7 +11,10 @@ module.exports = (config = {}) => {
     const mockFolder = endNoSlash(config.mockFolder) || "./mock_data";
     const apiPath = endInSlash(config.apiPath) || "/api/";
     const distFolder = config.distFolder || "./dist";
+    const spa = config.spa || false;
+    const spaFile = config.spaFile || distFolder + '/' + 'index.html';
 
+    app.use(cors());
     app.use(express.static(distFolder));
 
     app.all(apiPath + "*", (req, res) => {
@@ -28,6 +32,16 @@ module.exports = (config = {}) => {
         res.json(data.body);
     });
 
+    if (spa) {
+        app.get('*', (req, res) => {
+            res.sendFile(spaFile);
+        })
+    }
+    
+    app.listen(port, (error) => {
+        console.log('mockserver listening on port: ' + port);
+    });
+
     function endInSlash(value) {
         if (!value || value.slice(-1) === "/") return value;
         return value + "/";
@@ -37,8 +51,4 @@ module.exports = (config = {}) => {
         if (!value || value.slice(-1) !== "/") return value;
         return value.slice(0, -1);
     }
-    
-    app.listen(port, (error) => {
-        console.log('mockserver listening on port: ' + port);
-    });
 }
