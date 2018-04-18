@@ -28,7 +28,9 @@ config = {
     "port": 3000,
     "mockFolder": "./mock_data",
     "apiPath": "/api",
-    "distFolder": "./dist"
+    "distFolder": "./dist",
+    "spa": false,
+    "spaFile": distFolder + "/" + index.html
 }
 ```
 
