@@ -34,7 +34,7 @@ module.exports = (config = {}) => {
 
     if (spa) {
         app.get('*', (req, res) => {
-            res.sendFile(spaFile);
+            res.sendFile(path.resolve(spaFile));
         })
     }
     
