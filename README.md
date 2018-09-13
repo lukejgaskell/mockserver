@@ -1,5 +1,5 @@
 ### description
-super simple server to mock api responses to assist in front end development
+super simple server to mock api responses to assist in front end developmentsssssss
 
 ### installation
 `npm install --save-dev lukejgaskell/mockserver`
